@@ -1,0 +1,25 @@
+{
+  "name": "stack",
+  "version": "0.1.0",
+  "description": "Personal collection of Claude Code skills, tools, loops, and harnesses for customized coding workflows.",
+  "license": "MIT",
+  "keywords": [
+    "engineering",
+    "productivity",
+    "skills",
+    "claude-code"
+  ],
+  "skills": [
+    "./skills/capabilities/agent-reach",
+    "./skills/capabilities/unslop",
+    "./skills/engineering/domain-modeling",
+    "./skills/engineering/grill-with-docs",
+    "./skills/engineering/grilling",
+    "./skills/engineering/prototype",
+    "./skills/engineering/research",
+    "./skills/engineering/setup-matt-pocock-skills",
+    "./skills/engineering/wayfinder",
+    "./skills/productivity/grill-me",
+    "./skills/productivity/grilling"
+  ]
+}
