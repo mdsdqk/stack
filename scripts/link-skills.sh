@@ -26,11 +26,15 @@ SKILLS=(
   "grill-with-docs:engineering/grill-with-docs"
   "prototype:engineering/prototype"
   "research:engineering/research"
-  "setup-matt-pocock-skills:engineering/setup-matt-pocock-skills"
   "wayfinder:engineering/wayfinder"
   "grill-me:productivity/grill-me"
   "grilling:shared/grilling"
 )
+
+declare -A SKILL_NAMES=()
+for entry in "${SKILLS[@]}"; do
+  SKILL_NAMES["${entry%%:*}"]=1
+done
 
 # target-dir per agent tool that needs a flat, one-level skills folder
 TARGETS=(
@@ -40,6 +44,15 @@ TARGETS=(
   "$HOME/.cursor/stack-skills"
 )
 
+for entry in "${SKILLS[@]}"; do
+  rel_path="${entry##*:}"
+  src_path="$REPO_DIR/skills/$rel_path"
+  if [[ ! -f "$src_path/SKILL.md" ]]; then
+    echo "Error: missing SKILL.md at $src_path" >&2
+    exit 1
+  fi
+done
+
 for target in "${TARGETS[@]}"; do
   # If a previous setup left this as a symlink to the whole skills/ dir,
   # replace it with a real directory we can populate per-skill.
@@ -47,6 +60,19 @@ for target in "${TARGETS[@]}"; do
     rm "$target"
   fi
   mkdir -p "$target"
+
+  # Remove symlinks for skills no longer in the manifest.
+  shopt -s nullglob
+  for link_path in "$target"/*; do
+    if [[ -L "$link_path" ]]; then
+      flat_name="$(basename "$link_path")"
+      if [[ -z "${SKILL_NAMES[$flat_name]+x}" ]]; then
+        rm "$link_path"
+        echo "removed stale $link_path"
+      fi
+    fi
+  done
+  shopt -u nullglob
 
   for entry in "${SKILLS[@]}"; do
     flat_name="${entry%%:*}"

@@ -13,17 +13,16 @@ $ErrorActionPreference = "Stop"
 
 $RepoDir = Split-Path -Parent $PSScriptRoot
 
-$Skills = @{
-  "agent-reach"               = "capabilities\agent-reach"
-  "unslop"                    = "capabilities\unslop"
-  "domain-modeling"           = "engineering\domain-modeling"
-  "grill-with-docs"           = "engineering\grill-with-docs"
-  "prototype"                 = "engineering\prototype"
-  "research"                  = "engineering\research"
-  "setup-matt-pocock-skills"  = "engineering\setup-matt-pocock-skills"
-  "wayfinder"                 = "engineering\wayfinder"
-  "grill-me"                  = "productivity\grill-me"
-  "grilling"                  = "shared\grilling"
+$Skills = [ordered]@{
+  "agent-reach"      = "capabilities\agent-reach"
+  "unslop"           = "capabilities\unslop"
+  "domain-modeling"  = "engineering\domain-modeling"
+  "grill-with-docs"  = "engineering\grill-with-docs"
+  "prototype"        = "engineering\prototype"
+  "research"         = "engineering\research"
+  "wayfinder"        = "engineering\wayfinder"
+  "grill-me"         = "productivity\grill-me"
+  "grilling"         = "shared\grilling"
 }
 
 $Targets = @(
@@ -33,6 +32,14 @@ $Targets = @(
   (Join-Path $HOME ".cursor\stack-skills")
 )
 
+foreach ($relPath in $Skills.Values) {
+  $srcPath = Join-Path $RepoDir "skills\$relPath"
+  $skillFile = Join-Path $srcPath "SKILL.md"
+  if (-not (Test-Path $skillFile)) {
+    throw "Missing SKILL.md at $srcPath"
+  }
+}
+
 foreach ($target in $Targets) {
   $item = Get-Item -Path $target -Force -ErrorAction SilentlyContinue
   if ($item -and $item.LinkType) {
@@ -40,6 +47,13 @@ foreach ($target in $Targets) {
   }
   if (-not (Test-Path $target)) {
     New-Item -ItemType Directory -Path $target -Force | Out-Null
+  }
+
+  Get-ChildItem -Path $target -Force -ErrorAction SilentlyContinue | ForEach-Object {
+    if ($_.LinkType -and -not $Skills.Contains($_.Name)) {
+      Remove-Item -Path $_.FullName -Force -Confirm:$false
+      Write-Host "removed stale $($_.FullName)"
+    }
   }
 
   foreach ($flatName in $Skills.Keys) {

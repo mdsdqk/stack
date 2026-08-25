@@ -1,7 +1,7 @@
 {
   "name": "s3q/stack",
   "version": "0.1.0",
-  "description": "Personal collection of agent skills, tools, loops, and harnesses for customized coding workflows. A showcase repo, not a promoted install target — grab what's useful.",
+  "description": "A collection of agent skills, tools, loops, and harnesses for coding workflows.",
   "license": "MIT",
   "keywords": [
     "engineering",
@@ -15,7 +15,6 @@
     "./skills/engineering/grill-with-docs",
     "./skills/engineering/prototype",
     "./skills/engineering/research",
-    "./skills/engineering/setup-matt-pocock-skills",
     "./skills/engineering/wayfinder",
     "./skills/productivity/grill-me",
     "./skills/shared/grilling"

@@ -1,0 +1,3 @@
+interface:
+  display_name: "Agent Reach"
+  short_description: "Fetch from 15 internet platforms via routed CLIs"

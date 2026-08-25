@@ -10,7 +10,7 @@ Source: https://github.com/mattpocock/skills
 Used for: `skills/shared/grilling`, `skills/productivity/grill-me`,
 `skills/engineering/grill-with-docs`, `skills/engineering/domain-modeling`,
 `skills/engineering/wayfinder`, `skills/engineering/research`,
-`skills/engineering/prototype`, `skills/engineering/setup-matt-pocock-skills`.
+`skills/engineering/prototype`.
 
 ```
 MIT License

@@ -3,12 +3,12 @@
   "owner": {
     "name": "Mohammed Sadiq K"
   },
-  "description": "Personal collection of agent skills, tools, loops, and harnesses. A showcase of one setup, not a promoted install target — take what's useful.",
+  "description": "A collection of agent skills, tools, loops, and harnesses for engineering workflows.",
   "plugins": [
     {
       "name": "s3q/stack",
       "source": "./",
-      "description": "Personal agent skills: grilling, domain modeling, wayfinder, prototype, research, and more.",
+      "description": "Agent skills: grilling, domain modeling, wayfinder, prototype, research, and more.",
       "category": "engineering"
     }
   ]
