@@ -1,12 +1,16 @@
-# Stack
+# s3q/stack
 
-Personal collection of Claude Code skills, tools, loops, and harnesses for customized coding workflows.
+A showcase of my personal Claude Code / agent skill setup: skills, tools, loops, and
+harnesses for customized coding workflows, agent-vendor-agnostic where possible. This
+is here to be looked at and borrowed from, not something I'm promoting as an install
+target — if a skill here is useful to you, take it.
 
 ## Contents
 
 ### Skills (Grill Suite)
 
-Structured interviewing and design planning tools from Matt Pocock's suite:
+Structured interviewing and design planning tools, adapted from Matt Pocock's suite
+(see [Credits](#credits)):
 
 - **grilling** - Core interview mechanism for stress-testing plans and decisions
 - **grill-me** - Interview without working directory
@@ -19,20 +23,28 @@ Structured interviewing and design planning tools from Matt Pocock's suite:
 
 ### Skills (Capabilities)
 
-Third-party skills that grant new abilities (e.g. live internet access, writing style):
+Third-party skills that grant new abilities (e.g. live internet access, writing style)
+(see [Credits](#credits)):
 
 - **agent-reach** - Multi-platform research/fetch tool (search, social, dev, web, video, finance) routed across CLIs and APIs
-- **unslop** - Cut AI writing tells and add human voice to any text (from pstack)
+- **unslop** - Cut AI writing tells and add human voice to any text
 
 ## Getting Started
 
-As a Claude Code plugin:
+This repo is agent-vendor-agnostic: every skill is plain `SKILL.md` + supporting
+files, nothing Claude-Code-specific required to read or reuse them.
 
-1. Add this repo as a marketplace source and install the `stack` plugin
-   (`.claude-plugin/marketplace.json` + `.claude-plugin/plugin.json` list every
-   skill by its nested path, so Claude Code resolves them without any flattening)
-2. Type `/grill-me`, `/grilling`, or `/grill-with-docs` to invoke
-3. Each skill has its own SKILL.md documenting usage and prerequisites
+1. Clone the repo, browse `skills/` for what you want
+2. Each skill has its own SKILL.md documenting usage and prerequisites
+3. To wire skills into a local agent tool that scans one directory level deep for
+   `SKILL.md` (Claude Code, Codex, Cursor, `~/.agents`), run
+   `scripts/link-skills.sh` (or `scripts/link-skills.ps1` on Windows) — see
+   [Organization](#organization) below
+
+Claude Code users who specifically want one-command install can instead add this
+repo as a plugin marketplace source and install `s3q/stack`
+(`.claude-plugin/marketplace.json` + `plugin.json` list every skill by its nested
+path); this is a secondary option, not the primary way this repo is meant to be used.
 
 For other agent tools (Codex, Cursor, plain `~/.agents`) that only scan one
 directory level deep for `SKILL.md`, run `scripts/link-skills.sh` (or
@@ -46,17 +58,17 @@ added, renamed, or removed.
 ```
 stack/
 ├── .claude-plugin/
-│   ├── plugin.json       # lists every skill by its nested path
+│   ├── plugin.json       # lists every skill by its nested path (secondary, Claude-Code-only install path)
 │   └── marketplace.json  # makes this repo its own installable marketplace
 ├── scripts/
 │   ├── link-skills.sh    # flattens skills/ into each tool's flat skills dir (macOS/Linux)
 │   └── link-skills.ps1   # same, for Windows
 └── skills/
+    ├── shared/
+    │   └── grilling/      # used by both grill-me and grill-with-docs; lives here, not under either bucket
     ├── productivity/
-    │   ├── grilling/
     │   └── grill-me/
     ├── engineering/
-    │   ├── grilling/
     │   ├── grill-with-docs/
     │   ├── domain-modeling/
     │   ├── prototype/
@@ -89,7 +101,19 @@ This is a living collection—add, modify, and refine skills to match your perso
 - New skills and tools you develop
 - Workflow automation loops
 
+## Credits
+
+This repo adapts skills built by others. Full license text for each is in
+[THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).
+
+- **grilling, grill-me, grill-with-docs, domain-modeling, wayfinder, research,
+  prototype, setup-matt-pocock-skills** — adapted from
+  [Matt Pocock's Skills Suite](https://github.com/mattpocock/skills) (MIT, © Matt Pocock)
+- **unslop** — from [pstack](https://github.com/cursor/plugins/tree/main/pstack) by
+  [Lauren Tan (poteto)](https://x.com/poteto) (MIT, © Lauren Tan)
+- **agent-reach** — from [Agent-Reach](https://github.com/Panniantong/Agent-Reach)
+  (MIT, © Agent Eyes)
+
 ## References
 
-- Matt Pocock's [Skills Suite](https://github.com/mattpocock/skills)
 - Claude Code documentation

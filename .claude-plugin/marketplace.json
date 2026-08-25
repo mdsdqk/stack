@@ -1,14 +1,14 @@
 {
-  "name": "stack",
+  "name": "s3q/stack",
   "owner": {
     "name": "Mohammed Sadiq K"
   },
-  "description": "Personal collection of Claude Code skills, tools, loops, and harnesses for customized coding workflows, shipped as an installable plugin.",
+  "description": "Personal collection of agent skills, tools, loops, and harnesses. A showcase of one setup, not a promoted install target — take what's useful.",
   "plugins": [
     {
-      "name": "stack",
+      "name": "s3q/stack",
       "source": "./",
-      "description": "Personal Claude Code skills: grilling, domain modeling, wayfinder, prototype, research, and more.",
+      "description": "Personal agent skills: grilling, domain modeling, wayfinder, prototype, research, and more.",
       "category": "engineering"
     }
   ]

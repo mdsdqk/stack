@@ -18,13 +18,12 @@ $Skills = @{
   "unslop"                    = "capabilities\unslop"
   "domain-modeling"           = "engineering\domain-modeling"
   "grill-with-docs"           = "engineering\grill-with-docs"
-  "grilling-engineering"      = "engineering\grilling"
   "prototype"                 = "engineering\prototype"
   "research"                  = "engineering\research"
   "setup-matt-pocock-skills"  = "engineering\setup-matt-pocock-skills"
   "wayfinder"                 = "engineering\wayfinder"
   "grill-me"                  = "productivity\grill-me"
-  "grilling-productivity"     = "productivity\grilling"
+  "grilling"                  = "shared\grilling"
 }
 
 $Targets = @(
