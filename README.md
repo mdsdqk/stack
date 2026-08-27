@@ -20,24 +20,18 @@ workflows.
 
 ### External plugins & tools
 
-Not vendored here — installed from their own marketplaces or npm as part of the
-setup, and updated on their own cadence. See [External plugins & tools](#external-plugins--tools)
-below.
+Also part of the setup, but not vendored here — installed from their own sources and
+tracked upstream there. Follow each project's own docs to install.
 
-- **impeccable** - Design-quality system for AI coding agents: `/impeccable` commands
-  (`audit`, `polish`, `critique`, `shape`, `animate`, `colorize`, …), a no-API-key
-  anti-pattern detector CLI, and design hooks that scan on file edits. From
-  [pbakaus/impeccable](https://github.com/pbakaus/impeccable) (Apache-2.0, © Paul Bakaus)
-- **tastemaker** - Grounds AI-generated UI in real reference images, verified-contrast
-  palettes, attribution-free assets, and a persistent per-developer taste profile;
-  activates automatically on UI work. From
-  [codeswithroh/tastemaker](https://github.com/codeswithroh/tastemaker) (MIT, © codeswithroh)
-- **higgsfield** - Higgsfield AI CLI (`higgsfield` / `higgs`) for generating images,
-  video, 3D assets, and audio from the terminal, plus 8 companion skills
-  (`higgsfield-generate`, `higgsfield-soul-id`, `higgsfield-product-photoshoot`, …).
-  CLI from [`@higgsfield/cli`](https://www.npmjs.com/package/@higgsfield/cli), skills
-  from [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills). Proprietary
-  service, paid credits.
+- **impeccable** - design-quality system for AI coding agents (audit / polish /
+  critique commands + anti-pattern detector).
+  [pbakaus/impeccable](https://github.com/pbakaus/impeccable)
+- **tastemaker** - grounds AI-generated UI in real reference images and a persistent
+  taste profile. [codeswithroh/tastemaker](https://github.com/codeswithroh/tastemaker)
+- **higgsfield** - [Higgsfield AI](https://higgsfield.ai) CLI + companion skills for
+  generating images, video, 3D, and audio from the terminal.
+  [`@higgsfield/cli`](https://www.npmjs.com/package/@higgsfield/cli) ·
+  [higgsfield-ai/skills](https://github.com/higgsfield-ai/skills)
 
 ## Getting Started
 
@@ -95,71 +89,6 @@ break on any other machine or clone location).
 Git Bash — the latter has been observed to silently fall back to a real recursive
 copy instead of a symlink, which desyncs the flattened copy from the source
 directory.
-
-## External plugins & tools
-
-Some tools are too large to reduce to a flat `SKILL.md`, ship their own installer or
-marketplace, and are developed as their own products with their own release cadence.
-Rather than vendor and reshape them like the skills above, the setup installs them
-from their own source and tracks upstream there. They are intentionally **not** in
-`skills/`, the manifest, or the link scripts.
-
-### impeccable
-
-[pbakaus/impeccable](https://github.com/pbakaus/impeccable) — design guidance for AI
-coding agents: 23 `/impeccable` commands, a deterministic anti-pattern detector CLI
-(`npx impeccable detect src/`, no API key), and hooks that scan design on file edits.
-Apache-2.0, © Paul Bakaus.
-
-Install globally in Claude Code:
-
-```
-/plugin marketplace add pbakaus/impeccable
-/plugin install impeccable@impeccable
-```
-
-Then, once per project, run `/impeccable init` to generate its `PRODUCT.md` and
-`DESIGN.md` context files. Pull upstream changes deliberately with
-`/plugin marketplace update impeccable` when a release is worth taking.
-
-### tastemaker
-
-[codeswithroh/tastemaker](https://github.com/codeswithroh/tastemaker) — grounds
-AI-generated UI in real reference images and a persistent per-developer taste
-profile: computed WCAG-contrast palettes, reference-image colour extraction,
-attribution-free asset sourcing, anti-slop scanning, and restrained motion
-guidelines. Bundles palette/contrast scripts, a GSAP motion library, and a vendored
-`ideagram` illustration sub-skill — reason enough to take it from its own marketplace
-rather than vendor it here. MIT, © codeswithroh.
-
-Install globally in Claude Code:
-
-```
-/plugin marketplace add codeswithroh/tastemaker
-/plugin install tastemaker@codeswithroh
-```
-
-It then activates automatically on UI work — no explicit invocation. Pull upstream
-changes deliberately with `/plugin marketplace update tastemaker`.
-
-### higgsfield
-
-[Higgsfield AI](https://higgsfield.ai) — a proprietary generation service. Not a
-Claude Code marketplace: a global npm CLI plus a companion skills bundle. Generation
-spends Higgsfield credits (paid account).
-
-```
-npm i -g @higgsfield/cli
-higgsfield auth login          # browser OAuth — run this one yourself
-npx skills add higgsfield-ai/skills -g -y --skill '*'
-```
-
-The CLI installs the `higgsfield` and `higgs` commands (`higgsfield generate`,
-`model list`, `workflow list`, …). The 8 skills — `higgsfield-generate`,
-`higgsfield-soul-id`, `higgsfield-product-photoshoot`, `higgsfield-brandkit`,
-`higgsfield-websites`, `higgsfield-video-explainer`, `higgsfield-youtube-thumbnail`,
-`higgsfield-marketplace-cards` — install to `~/.agents/skills/` and symlink into
-`~/.claude/skills/`. Update with `npx skills update -g` and `npm i -g @higgsfield/cli`.
 
 ## Customization
 

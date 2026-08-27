@@ -105,18 +105,16 @@ SOFTWARE.
 Source: https://github.com/pbakaus/impeccable, by Paul Bakaus
 
 Referenced by this repo's README as part of the setup, but **not bundled** — it is
-installed from its own Claude Code marketplace (`/plugin marketplace add
-pbakaus/impeccable`). Licensed under Apache-2.0; the full license text ships with
-the plugin itself. No source from it is redistributed here.
+installed from its own source. Licensed under Apache-2.0; the full license text
+ships with the plugin itself. No source from it is redistributed here.
 
 ## tastemaker
 
 Source: https://github.com/codeswithroh/tastemaker, by codeswithroh
 
 Referenced by this repo's README as part of the setup, but **not bundled** — it is
-installed from its own Claude Code marketplace (`/plugin marketplace add
-codeswithroh/tastemaker`). Licensed under MIT; the full license text ships with the
-plugin itself. No source from it is redistributed here.
+installed from its own source. Licensed under MIT; the full license text ships with
+the plugin itself. No source from it is redistributed here.
 
 ## higgsfield
 
@@ -125,7 +123,6 @@ Source: https://higgsfield.ai — CLI published as
 at https://github.com/higgsfield-ai/skills, both by Higgsfield AI.
 
 Referenced by this repo's README as part of the setup, but **not bundled** — the CLI
-is installed globally from npm (`npm i -g @higgsfield/cli`) and the skills via
-`npx skills add higgsfield-ai/skills`. Higgsfield is a proprietary hosted service
-that consumes paid credits; its own terms apply. No source from it is redistributed
-here.
+is installed from npm and the skills from their own repo. Higgsfield is a proprietary
+hosted service that consumes paid credits; its own terms apply. No source from it is
+redistributed here.
