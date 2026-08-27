@@ -27,6 +27,10 @@ updated on their own cadence. See [External plugins](#external-plugins) below.
   (`audit`, `polish`, `critique`, `shape`, `animate`, `colorize`, …), a no-API-key
   anti-pattern detector CLI, and design hooks that scan on file edits. From
   [pbakaus/impeccable](https://github.com/pbakaus/impeccable) (Apache-2.0, © Paul Bakaus)
+- **tastemaker** - Grounds AI-generated UI in real reference images, verified-contrast
+  palettes, attribution-free assets, and a persistent per-developer taste profile;
+  activates automatically on UI work. From
+  [codeswithroh/tastemaker](https://github.com/codeswithroh/tastemaker) (MIT, © codeswithroh)
 
 ## Getting Started
 
@@ -111,6 +115,26 @@ Then, once per project, run `/impeccable init` to generate its `PRODUCT.md` and
 `DESIGN.md` context files. Pull upstream changes deliberately with
 `/plugin marketplace update impeccable` when a release is worth taking.
 
+### tastemaker
+
+[codeswithroh/tastemaker](https://github.com/codeswithroh/tastemaker) — grounds
+AI-generated UI in real reference images and a persistent per-developer taste
+profile: computed WCAG-contrast palettes, reference-image colour extraction,
+attribution-free asset sourcing, anti-slop scanning, and restrained motion
+guidelines. Bundles palette/contrast scripts, a GSAP motion library, and a vendored
+`ideagram` illustration sub-skill — reason enough to take it from its own marketplace
+rather than vendor it here. MIT, © codeswithroh.
+
+Install globally in Claude Code:
+
+```
+/plugin marketplace add codeswithroh/tastemaker
+/plugin install tastemaker@codeswithroh
+```
+
+It then activates automatically on UI work — no explicit invocation. Pull upstream
+changes deliberately with `/plugin marketplace update tastemaker`.
+
 ## Customization
 
 This is a living collection—add, modify, and refine skills to match your personal preferences and engineering workflows. Consider adding:
@@ -134,6 +158,8 @@ This repo adapts skills built by others. Full license text for each is in
   (MIT, © Agent Eyes)
 - **impeccable** — referenced, not bundled; installed from its own marketplace.
   [pbakaus/impeccable](https://github.com/pbakaus/impeccable) (Apache-2.0, © Paul Bakaus)
+- **tastemaker** — referenced, not bundled; installed from its own marketplace.
+  [codeswithroh/tastemaker](https://github.com/codeswithroh/tastemaker) (MIT, © codeswithroh)
 
 ## References
 

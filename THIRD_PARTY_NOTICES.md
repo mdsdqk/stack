@@ -3,8 +3,9 @@
 This repo includes skills adapted or copied from other MIT-licensed projects.
 Their license text is reproduced below, as required by the MIT license.
 
-It also references — but does not bundle — one Apache-2.0 project, installed from
-its own marketplace; see [impeccable](#impeccable) at the end.
+It also references — but does not bundle — two projects installed from their own
+marketplaces: [impeccable](#impeccable) (Apache-2.0) and [tastemaker](#tastemaker)
+(MIT), both listed at the end.
 
 ## Matt Pocock's Skills Suite
 
@@ -107,3 +108,12 @@ Referenced by this repo's README as part of the setup, but **not bundled** — i
 installed from its own Claude Code marketplace (`/plugin marketplace add
 pbakaus/impeccable`). Licensed under Apache-2.0; the full license text ships with
 the plugin itself. No source from it is redistributed here.
+
+## tastemaker
+
+Source: https://github.com/codeswithroh/tastemaker, by codeswithroh
+
+Referenced by this repo's README as part of the setup, but **not bundled** — it is
+installed from its own Claude Code marketplace (`/plugin marketplace add
+codeswithroh/tastemaker`). Licensed under MIT; the full license text ships with the
+plugin itself. No source from it is redistributed here.
