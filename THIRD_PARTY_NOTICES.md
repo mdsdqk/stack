@@ -3,9 +3,9 @@
 This repo includes skills adapted or copied from other MIT-licensed projects.
 Their license text is reproduced below, as required by the MIT license.
 
-It also references — but does not bundle — two projects installed from their own
-marketplaces: [impeccable](#impeccable) (Apache-2.0) and [tastemaker](#tastemaker)
-(MIT), both listed at the end.
+It also references — but does not bundle — projects installed from their own
+sources: [impeccable](#impeccable) (Apache-2.0), [tastemaker](#tastemaker) (MIT),
+and [higgsfield](#higgsfield) (proprietary service), all listed at the end.
 
 ## Matt Pocock's Skills Suite
 
@@ -117,3 +117,15 @@ Referenced by this repo's README as part of the setup, but **not bundled** — i
 installed from its own Claude Code marketplace (`/plugin marketplace add
 codeswithroh/tastemaker`). Licensed under MIT; the full license text ships with the
 plugin itself. No source from it is redistributed here.
+
+## higgsfield
+
+Source: https://higgsfield.ai — CLI published as
+[`@higgsfield/cli`](https://www.npmjs.com/package/@higgsfield/cli), companion skills
+at https://github.com/higgsfield-ai/skills, both by Higgsfield AI.
+
+Referenced by this repo's README as part of the setup, but **not bundled** — the CLI
+is installed globally from npm (`npm i -g @higgsfield/cli`) and the skills via
+`npx skills add higgsfield-ai/skills`. Higgsfield is a proprietary hosted service
+that consumes paid credits; its own terms apply. No source from it is redistributed
+here.
