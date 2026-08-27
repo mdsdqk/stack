@@ -3,14 +3,17 @@
 This repo includes skills adapted or copied from other MIT-licensed projects.
 Their license text is reproduced below, as required by the MIT license.
 
+It also references — but does not bundle — one Apache-2.0 project, installed from
+its own marketplace; see [impeccable](#impeccable) at the end.
+
 ## Matt Pocock's Skills Suite
 
 Source: https://github.com/mattpocock/skills
 
 Used for: `skills/shared/grilling`, `skills/productivity/grill-me`,
-`skills/engineering/grill-with-docs`, `skills/engineering/domain-modeling`,
-`skills/engineering/wayfinder`, `skills/engineering/research`,
-`skills/engineering/prototype`.
+`skills/productivity/handoff`, `skills/engineering/grill-with-docs`,
+`skills/engineering/domain-modeling`, `skills/engineering/wayfinder`,
+`skills/engineering/research`, `skills/engineering/prototype`.
 
 ```
 MIT License
@@ -95,3 +98,12 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+## impeccable
+
+Source: https://github.com/pbakaus/impeccable, by Paul Bakaus
+
+Referenced by this repo's README as part of the setup, but **not bundled** — it is
+installed from its own Claude Code marketplace (`/plugin marketplace add
+pbakaus/impeccable`). Licensed under Apache-2.0; the full license text ships with
+the plugin itself. No source from it is redistributed here.

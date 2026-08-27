@@ -17,6 +17,7 @@
     "./skills/engineering/research",
     "./skills/engineering/wayfinder",
     "./skills/productivity/grill-me",
+    "./skills/productivity/handoff",
     "./skills/shared/grilling"
   ]
 }

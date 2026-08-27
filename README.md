@@ -9,6 +9,7 @@ workflows.
 
 - **grilling** - Core interview mechanism for stress-testing plans and decisions
 - **grill-me** - Interview without working directory
+- **handoff** - Compact the current conversation into a handoff document for a fresh agent
 - **grill-with-docs** - Interview in a repo, writes to CONTEXT.md and ADRs
 - **domain-modeling** - Building and maintaining domain language glossaries
 - **wayfinder** - Plan work too big for one session as a map of decision tickets on an issue tracker
@@ -16,6 +17,16 @@ workflows.
 - **prototype** - Build a throwaway prototype to sanity-check a state model or UI direction
 - **agent-reach** - Multi-platform research/fetch tool (search, social, dev, web, video, finance) routed across CLIs and APIs
 - **unslop** - Cut AI writing tells and add human voice to any text
+
+### External plugins
+
+Not vendored here — installed from their own marketplaces as part of the setup, and
+updated on their own cadence. See [External plugins](#external-plugins) below.
+
+- **impeccable** - Design-quality system for AI coding agents: `/impeccable` commands
+  (`audit`, `polish`, `critique`, `shape`, `animate`, `colorize`, …), a no-API-key
+  anti-pattern detector CLI, and design hooks that scan on file edits. From
+  [pbakaus/impeccable](https://github.com/pbakaus/impeccable) (Apache-2.0, © Paul Bakaus)
 
 ## Getting Started
 
@@ -49,7 +60,8 @@ stack/
     ├── shared/
     │   └── grilling/      # used by both grill-me and grill-with-docs; lives here, not under either bucket
     ├── productivity/
-    │   └── grill-me/
+    │   ├── grill-me/
+    │   └── handoff/
     ├── engineering/
     │   ├── grill-with-docs/
     │   ├── domain-modeling/
@@ -73,6 +85,32 @@ Git Bash — the latter has been observed to silently fall back to a real recurs
 copy instead of a symlink, which desyncs the flattened copy from the source
 directory.
 
+## External plugins
+
+Some tools are too large to reduce to a flat `SKILL.md` and are developed as their
+own products with their own release cadence. Rather than vendor and reshape them
+like the skills above, the setup installs them from their own marketplaces and
+tracks upstream there. They are intentionally **not** in `skills/`, the manifest, or
+the link scripts.
+
+### impeccable
+
+[pbakaus/impeccable](https://github.com/pbakaus/impeccable) — design guidance for AI
+coding agents: 23 `/impeccable` commands, a deterministic anti-pattern detector CLI
+(`npx impeccable detect src/`, no API key), and hooks that scan design on file edits.
+Apache-2.0, © Paul Bakaus.
+
+Install globally in Claude Code:
+
+```
+/plugin marketplace add pbakaus/impeccable
+/plugin install impeccable@impeccable
+```
+
+Then, once per project, run `/impeccable init` to generate its `PRODUCT.md` and
+`DESIGN.md` context files. Pull upstream changes deliberately with
+`/plugin marketplace update impeccable` when a release is worth taking.
+
 ## Customization
 
 This is a living collection—add, modify, and refine skills to match your personal preferences and engineering workflows. Consider adding:
@@ -88,12 +126,14 @@ This repo adapts skills built by others. Full license text for each is in
 [THIRD_PARTY_NOTICES.md](./THIRD_PARTY_NOTICES.md).
 
 - **grilling, grill-me, grill-with-docs, domain-modeling, wayfinder, research,
-  prototype** — adapted from
+  prototype, handoff** — adapted from
   [Matt Pocock's Skills Suite](https://github.com/mattpocock/skills) (MIT, © Matt Pocock)
 - **unslop** — from [pstack](https://github.com/cursor/plugins/tree/main/pstack) by
   [Lauren Tan (poteto)](https://x.com/poteto) (MIT, © Lauren Tan)
 - **agent-reach** — from [Agent-Reach](https://github.com/Panniantong/Agent-Reach)
   (MIT, © Agent Eyes)
+- **impeccable** — referenced, not bundled; installed from its own marketplace.
+  [pbakaus/impeccable](https://github.com/pbakaus/impeccable) (Apache-2.0, © Paul Bakaus)
 
 ## References
 

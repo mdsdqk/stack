@@ -28,6 +28,7 @@ SKILLS=(
   "research:engineering/research"
   "wayfinder:engineering/wayfinder"
   "grill-me:productivity/grill-me"
+  "handoff:productivity/handoff"
   "grilling:shared/grilling"
 )
 
